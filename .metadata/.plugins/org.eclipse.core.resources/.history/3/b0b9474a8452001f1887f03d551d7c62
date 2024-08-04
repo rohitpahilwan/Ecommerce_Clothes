@@ -1,0 +1,11 @@
+package com.app.dto;
+
+public class OrderItemDTO {
+    private Long id;
+    private Long productId;
+    private Integer quantity;
+    private Double price;
+
+    // Getters and Setters
+}
+

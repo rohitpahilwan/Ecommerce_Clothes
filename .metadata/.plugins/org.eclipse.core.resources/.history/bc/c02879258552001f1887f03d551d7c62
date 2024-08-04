@@ -1,0 +1,53 @@
+package com.app.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.dto.CategoryDTO;
+import com.app.entities.Category;
+import com.app.repositories.CategoryRepository;
+
+import org.modelmapper.ModelMapper;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class CategoryServiceImpl {
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
+    public CategoryDTO createCategory(CategoryDTO categoryDTO) {
+        Category category = modelMapper.map(categoryDTO, Category.class);
+        Category savedCategory = categoryRepository.save(category);
+        return modelMapper.map(savedCategory, CategoryDTO.class);
+    }
+
+    public CategoryDTO getCategoryById(Long id) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Category not found"));
+        return modelMapper.map(category, CategoryDTO.class);
+    }
+
+    public List<CategoryDTO> getAllCategories() {
+        List<Category> categories = categoryRepository.findAll();
+        return categories.stream()
+                .map(category -> modelMapper.map(category, CategoryDTO.class))
+                .collect(Collectors.toList());
+    }
+
+    public CategoryDTO updateCategory(Long id, CategoryDTO categoryDTO) {
+        Category category = modelMapper.map(categoryDTO, Category.class);
+        category.setCategoryId(id);
+        Category updatedCategory = categoryRepository.save(category);
+        return modelMapper.map(updatedCategory, CategoryDTO.class);
+    }
+
+    public void deleteCategory(Long id) {
+        categoryRepository.deleteById(id);
+    }
+}

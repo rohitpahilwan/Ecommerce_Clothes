@@ -1,0 +1,33 @@
+package com.app.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.entities.CartItem;
+import com.app.repositories.CartItemRepository;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class CartItemServiceImpl {
+
+    @Autowired
+    private CartItemRepository cartItemRepository;
+
+    public List<CartItem> findAllCartItems() {
+        return cartItemRepository.findAll();
+    }
+
+    public Optional<CartItem> findCartItemById(Long id) {
+        return cartItemRepository.findById(id);
+    }
+
+    public CartItem saveCartItem(CartItem cartItem) {
+        return cartItemRepository.save(cartItem);
+    }
+
+    public void deleteCartItem(Long id) {
+        cartItemRepository.deleteById(id);
+    }
+}

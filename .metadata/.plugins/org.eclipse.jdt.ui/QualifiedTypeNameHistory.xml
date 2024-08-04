@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.persistence.MappedSuperclass"/>
+    <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="com.app.repositories.UserRepository"/>
+    <fullyQualifiedTypeName name="com.app.repositories.AdminRepository"/>
+    <fullyQualifiedTypeName name="com.app.repositories.ProductRepository"/>
+    <fullyQualifiedTypeName name="com.app.repositories.AddressRepository"/>
+    <fullyQualifiedTypeName name="com.app.repositories.CartRepository"/>
+    <fullyQualifiedTypeName name="com.app.repositories.CartItemRepository"/>
+    <fullyQualifiedTypeName name="com.app.repositories.OrderRepository"/>
+    <fullyQualifiedTypeName name="com.app.repositories.OrderItemRepository"/>
+    <fullyQualifiedTypeName name="com.app.service.UserService"/>
+    <fullyQualifiedTypeName name="com.app.entities.User"/>
+    <fullyQualifiedTypeName name="com.app.entities.Admin"/>
+    <fullyQualifiedTypeName name="com.app.service.AdminService"/>
+    <fullyQualifiedTypeName name="com.app.service.ProductService"/>
+    <fullyQualifiedTypeName name="com.app.entities.Product"/>
+    <fullyQualifiedTypeName name="com.app.service.AddressService"/>
+    <fullyQualifiedTypeName name="com.app.entities.Address"/>
+    <fullyQualifiedTypeName name="com.app.service.CartService"/>
+    <fullyQualifiedTypeName name="com.app.entities.Cart"/>
+    <fullyQualifiedTypeName name="com.app.service.CartItemService"/>
+    <fullyQualifiedTypeName name="com.app.entities.CartItem"/>
+    <fullyQualifiedTypeName name="com.app.service.OrderService"/>
+    <fullyQualifiedTypeName name="com.app.entities.Order"/>
+    <fullyQualifiedTypeName name="com.app.service.OrderItemService"/>
+    <fullyQualifiedTypeName name="com.app.entities.OrderItem"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+</qualifiedTypeNameHistroy>

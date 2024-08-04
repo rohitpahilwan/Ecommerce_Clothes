@@ -1,0 +1,10 @@
+package com.app.dto;
+
+public class CategoryDTO {
+
+    private Long categoryId;
+    private Integer quantity;
+    private Long productId;
+
+    // Getters and Setters
+}

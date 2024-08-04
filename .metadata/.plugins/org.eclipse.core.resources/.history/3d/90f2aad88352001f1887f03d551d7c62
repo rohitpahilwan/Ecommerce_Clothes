@@ -1,0 +1,7 @@
+package com.app.dto;
+
+package com.example.ecommerce.dto;
+
+import java.util.List;
+
+public class CartDTO

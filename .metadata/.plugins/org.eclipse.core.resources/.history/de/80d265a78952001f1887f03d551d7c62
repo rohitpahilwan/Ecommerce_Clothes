@@ -1,0 +1,54 @@
+package com.app.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.app.entities.Cart;
+import com.app.service.CartService;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/api/carts")
+public class CartController {
+
+    @Autowired
+    private CartService cartService;
+
+    @GetMapping
+    public List<Cart> getAllCarts() {
+        return cartService.findAllCarts();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Cart> getCartById(@PathVariable Long id) {
+        Optional<Cart> cart = cartService.findCartById(id);
+        return cart.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PostMapping
+    public Cart createCart(@RequestBody Cart cart) {
+        return cartService.saveCart(cart);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Cart> updateCart(@PathVariable Long id, @RequestBody Cart cart) {
+        if (!cartService.findCartById(id).isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        cart.setId(id);
+        Cart updatedCart = cartService.saveCart(cart);
+        return ResponseEntity.ok(updatedCart);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCart(@PathVariable Long id) {
+        if (!cartService.findCartById(id).isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        cartService.deleteCart(id);
+        return ResponseEntity.noContent().build();
+    }
+}

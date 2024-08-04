@@ -1,0 +1,13 @@
+package com.app.entities;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
+public class BaseEntity {
+@javax.persistence.Id
+@GeneratedValue(strategy=GeneratedType.IDENTITY)
+private Long Id;
+
+
+}

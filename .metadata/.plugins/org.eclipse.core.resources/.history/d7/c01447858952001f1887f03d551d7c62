@@ -1,0 +1,29 @@
+package com.app.controller;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.app.dto.AddressDTO;
+import com.app.service.AddressService;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/addresses")
+public class AddressController {
+
+    @Autowired
+    private AddressService addressService;
+
+    @PostMapping
+    public ResponseEntity<AddressDTO> createAddress(@RequestBody AddressDTO addressDTO) {
+        AddressDTO createdAddress = addressService.createAddress(addressDTO);
+        return ResponseEntity.ok(createdAddress);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<AddressDTO> getAddressById(@PathVariable Long id) {
+        AddressDTO addressDTO = addressService.getAddressById(id);
+        return ResponseEntity.ok
